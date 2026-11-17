@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hub de Prompts</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+<script>Auth.requireLogin();</script>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <h1>✨ <span>Hub de Prompts</span></h1>
+    <div id="cats"></div>
+    <div class="side-bottom">
+      <div class="sep"></div>
+      <button class="ghost" id="btnExport">⬇ Exportar backup (.json)</button>
+      <button class="ghost" id="btnImport">⬆ Importar backup</button>
+      <input type="file" id="fileImport" accept=".json" hidden>
+      <button class="ghost" id="btnLogout">⎋ Sair</button>
+    </div>
+  </aside>
+  <main>
+    <div class="top">
+      <input id="q" placeholder="🔎 Buscar por título, texto ou tag...  (atalho: /)">
+      <select id="sort" class="sort">
+        <option value="recent">Mais recentes</option>
+        <option value="used">Mais usados</option>
+        <option value="az">A → Z</option>
+      </select>
+      <button class="pri" id="btnNew">+ Novo prompt</button>
+    </div>
+    <div id="grid" class="grid"></div>
+  </main>
+</div>
+
+<!-- editar -->
+<div class="ov" id="ovEdit">
+  <div class="modal">
+    <h2 id="editTitle">Novo prompt</h2>
+    <label>Título</label>
+    <input id="fTitle" placeholder="Ex.: Roteiro de Reels com gancho forte">
+    <div class="row">
+      <div>
+        <label>Categoria</label>
+        <input id="fCat" list="catList" placeholder="Ex.: Vídeo, Copy, Imagem...">
+        <datalist id="catList"></datalist>
+      </div>
+      <div>
+        <label>Tags (separe por vírgula)</label>
+        <input id="fTags" placeholder="reels, gancho, tiktok">
+      </div>
+    </div>
+    <label>Prompt</label>
+    <textarea id="fBody" placeholder="Escreva o prompt aqui..."></textarea>
+    <div class="hint">Dica: use <code>{{variavel}}</code> para partes que mudam (ex.: <code>{{tema}}</code>). Na hora de copiar, o hub pergunta o valor de cada uma.</div>
+    <div class="mfoot">
+      <button class="del" id="btnDel">Excluir</button>
+      <div>
+        <button class="ghost" data-close>Cancelar</button>
+        <button class="pri" id="btnSave">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- preencher variáveis -->
+<div class="ov" id="ovVars">
+  <div class="modal">
+    <h2 id="varsTitle">Preencher variáveis</h2>
+    <div id="varsFields"></div>
+    <label>Prévia</label>
+    <div class="view-body" id="varsPreview"></div>
+    <div class="mfoot">
+      <span></span>
+      <div>
+        <button class="ghost" data-close>Cancelar</button>
+        <button class="pri" id="btnVarsCopy">Copiar prompt</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ver -->
+<div class="ov" id="ovView">
+  <div class="modal">
+    <h2 id="viewTitle"></h2>
+    <div class="tags" id="viewTags" style="margin-bottom:12px"></div>
+    <div class="view-body" id="viewBody"></div>
+    <div class="mfoot">
+      <span class="meta" id="viewMeta"></span>
+      <div>
+        <button class="ghost" data-close>Fechar</button>
+        <button class="ghost" id="btnViewEdit">Editar</button>
+        <button class="pri" id="btnViewCopy">Copiar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Copiado!</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

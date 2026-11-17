@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrar · Hub de Prompts</title>
+<link rel="stylesheet" href="css/login.css">
+<script src="js/auth.js"></script>
+</head>
+<body>
+<form class="box" id="form" autocomplete="on">
+  <div class="logo">✨</div>
+  <h1><span>Hub de Prompts</span></h1>
+  <p class="sub" id="sub">Entre para acessar seus prompts</p>
+
+  <label for="user">Usuário</label>
+  <input type="text" id="user" autocomplete="username" required>
+
+  <label for="pass">Senha</label>
+  <div class="pass">
+    <input type="password" id="pass" autocomplete="current-password" required>
+    <button type="button" class="eye" id="eye" title="Mostrar senha">👁</button>
+  </div>
+
+  <div id="confirmWrap" class="hidden">
+    <label for="pass2">Confirme a senha</label>
+    <input type="password" id="pass2" autocomplete="new-password">
+  </div>
+
+  <label class="check"><input type="checkbox" id="remember"> Manter conectada neste aparelho</label>
+
+  <button class="pri" id="btn" type="submit">Entrar</button>
+  <div class="err" id="err"></div>
+
+  <button type="button" class="link" id="forgot">Esqueci a senha</button>
+  <div class="note hidden" id="firstNote">Primeiro acesso neste navegador: crie seu usuário e senha. Eles ficam salvos só aqui, de forma criptografada.</div>
+</form>
+
+<script src="js/login.js"></script>
+</body>
+</html>

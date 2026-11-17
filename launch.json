@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hub-prompts",
+      "runtimeExecutable": "C:\\Users\\andre\\.editor-video\\node\\node.exe",
+      "runtimeArgs": ["C:\\Users\\andre\\AppData\\Local\\Temp\\claude\\27efab936168ef80\\dcf6f64f-778f-43c6-867d-ff01f5df6c9a\\scratchpad\\serve.js", "C:\\andressinha_claude\\hub_prompts", "5173"],
+      "port": 5173
+    }
+  ]
+}
